@@ -1,0 +1,73 @@
+﻿html, body {
+    overflow: visible !important;
+}
+
+.privilege_empty {
+    display: list-item;
+    list-style-image: url('../images/privileges/privilege_empty.png');
+    list-style-position: inside;
+}
+
+.privilege_user {
+    display: list-item;
+    list-style-image: url('../images/privileges/privilege_user.png');
+    list-style-position: inside;
+}
+
+.privilege_bunit {
+    display: list-item;
+    list-style-image: url('../images/privileges/privilege_bunit.png');
+    list-style-position: inside;
+}
+
+.privilege_child_bunit {
+    display: list-item;
+    list-style-image: url('../images/privileges/privilege_child_bunit.png');
+    list-style-position: inside;
+}
+
+.privilege_organization {
+    display: list-item;
+    list-style-image: url('../images/privileges/privilege_organization.png');
+    list-style-position: inside;
+}
+
+.user-privileges {
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
+    border-top: 4px dashed #000 !important;
+}
+
+.list-group {
+    position: static;
+    height: auto;
+    overflow-y: visible;
+}
+
+#user-roles, #user-teams {
+    border-top: 4px dashed #000 !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.checkbox {
+    pointer-events: none;
+}
+
+    .checkbox .checkbox-label:not(.checkbox-checked):before {
+        display: none;
+    }
+
+    .checkbox input[type=checkbox]:checked ~ .checkbox-label:not(.checkbox-checked):after {
+        display: none;
+    }
+
+h2 {
+    margin: 5px 0;
+}
+
+h10 {
+    display: inline-block;
+    padding-bottom: 5px;
+    font-size: 12px;
+}

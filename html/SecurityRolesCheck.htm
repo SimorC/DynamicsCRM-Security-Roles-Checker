@@ -1,0 +1,535 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SCU - Security Roles Check</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="Shortcut Icon" href="../images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="../styles/metro_bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/font_awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/jquery.loading.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/tooltipster.bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/tooltipster_sideTip_light.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/custom.css">
+    <link rel="stylesheet" type="text/css" href="../styles/securityrolescheck.css">
+
+    <script src="../../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <script type="text/javascript" src="../scripts/jquery_3.3.1.min.js"></script>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar navbar-default navbar-static-top bsnavbar">
+        <div class="container container-nav">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    SimorC - Security Roles Checker
+                    <span class="label label-default">v0.1.14.10</span>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <div class="navbar-right">
+                    <a class="navbar-brand" href="https://github.com/SimorC/DynamicsCRM-Security-Roles-Checker">
+                        <img class="header-img" title="Check this project in GitHub!" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABJlBMVEUAAAAXFRUXFRUXFRUoJiYXFRUXFRUXFRUXFRUVExMXFRUXFRUXFRUXFRUXFRUXFRUXFRUbGRkXFRUXFRX///8XFRUXFRX///8XFRUXFRUXFRUXFRX///8XFRUXFRUXFRUXFRX///////8XFRUXFRUlIyMXFRXb29sXFRXV1dUXFRUXFRX///8XFRUWFBQTERENCwsQDg4LCQkJBwcmJCR2dXX5+fnt7Ozr6urW1tbLysqFhIRJR0c8OjoiICD8/Pz39/f09PTx8fHQ0NDAwMC7urqKiYlmZGRdXFwuLCwqKSkBAADu7u7k5OTb29usrKyhoKB6eXlnZmZhX19ZV1dOTExBQEAkIyMfHR3c3Ny1tbWvrq6amZmQj49qaWlOTU1DQUE0MjJgc8cKAAAALHRSTlMAm2sTBcoN6NjUZi/r5NDFwBcQCOvf3Na0sqeAfXhhXFGyr6mlf3w9Ozk3HvgoSQoAAAHHSURBVDjLdZNnV+pAEIaXEKQJil2v5fa6s5VwpUsXsPde/v+fcHcTIST4fMhJzvtkZvYkg3ykU5H5eHwuYqVtFGYmFYMRWSsazD8nYILlnYl4MQIhvi+M8+g8TCGWG72vciYZGWdEPSpjxhNUfX7WrVBGmZBSMHVT6Z5xgG/efAAEjjBuX9UqPcfpVWovbYyLhABsm/OtANBBE2Nc2MWG3YK6HNYoQEYPmgIl5E3m5/BGCbCFkJ3VQ/FWUChxPXTCRmlQiItCUNi7EDr5azoQ0sIhWkSX+KnPCLxaDwv1KlfROprTHfbxFPZ1jySKa+H8Q2HWCOx5mnDJtGBa8H4jnDf6XJ/TDEloKSyUqD7FGrJAIXph4Vzo5BNKmwr8JJifuJ//N7KTADdE8PKBP/5f5lTnK4sIWYQcd6pM9E87RTct3jkDScDtgNBChubbpVfG5dBxBWcoKRhmzc+9A+z66DgvJNx6FYCAi4UMGyDLhc7p00PdGyDvFVh735kYhXs85sATkqPtycUovyw/dvcmKmT/+fZugzA5vG74hfXJ7dteBj5oej9tjZKMhQJEt5JXXotmNfEjh8LYfza/ri4trX7Z/OVb/zdYTpLK6xm6CwAAAABJRU5ErkJggg==" />
+                    </a>
+                </div>
+                <div class="navbar-right">
+                    <a class="navbar-brand" href="https://paypal.me/simor">
+                        <img class="header-img" title="Donate and support the poor developer" src="data:image/png;base64,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" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END NAVBAR -->
+
+    <div class="header-information">
+        <span class="header-information-title">
+            Cumulative view of privileges based on Roles and Teams.
+        </span>
+        
+        <span class="header-information-help pull-right">
+            <i class="fa fa-question-circle-o header-information-help-tooltip" data-toggle="tooltip" data-placement="left" data-html="true"
+               title="Load the cumulative Permissions of a specific user<br/>- All active users will be loaded on the left side.<br/>- You may search the users by name using the text box.<br/>- When a user is clicked, the cumulative permissions of that user will be shown, together with all the Roles and Teams on the right side.<br/>- Clicking the black filled icon beside a role shows which Teams have that Role.<br/>- Clicking the icon beside a Team shows which Roles are on that Team.<br/>- You may check/uncheck the Roles to show the privileges changes in real-time.<br/>- Clicking the Privilege will show what Roles give which level of permission.<br/>- Clicking 'Export' will open a new window with a single-page view of the privileges and you may save as PDF."></i>
+        </span>
+    </div>
+
+    <!-- CONTAINER -->
+    <div class="container body-container">
+        <div class="custom-row" id="roles-page">
+            <!-- LEFT COL -->
+            <div class="col-sm-2 left-col">
+                <div class="header-row">
+                    <div class="col-header-title">Users</div>
+                    <!-- FILTERS -->
+                    <input type="text" id="txtSearch" class="form-control" />
+                    <!-- END FILTERS -->
+                </div>
+                <div id="list-users-col" class="list-group">
+                </div>
+            </div>
+            <!-- END LEFT COL -->
+            <!-- MID COL -->
+            <div class="col-sm-7 mid-col">
+                <span class="col-header-title">Privileges</span>
+
+                <div class="tabs-commands">
+                    <button id="btnExport" class="btn btn-default" type="button">Export</button>
+                </div>
+
+                <div class="list-permissions-col">
+                    <!-- TABS HEADER -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tabCore">Core</a></li>
+                        <li><a href="#tabMarketing">Marketing</a></li>
+                        <li><a href="#tabSales">Sales</a></li>
+                        <li><a href="#tabService">Service</a></li>
+                        <li><a href="#tabBusinessManagement">Business Management</a></li>
+                        <li><a href="#tabServiceManagement">Service Management</a></li>
+                        <li><a href="#tabCustomization">Customization</a></li>
+                        <li><a href="#tabCustomEntities">Custom Entities</a></li>
+                        <li><a href="#tabOther">Other</a></li>
+                    </ul>
+                    <!-- END TABS HEADER -->
+                    <!-- TABS -->
+                    <!-- TAB CORE -->
+                    <div id="tabCore" class="tab-container active">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Core
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_core" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Core"></tbody>
+                        </table>
+
+                        <table class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="table-span-header">
+                                        Miscellaneous
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="47"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Core_misc"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB CORE -->
+                    <!-- TAB MARKETING -->
+                    <div id="tabMarketing" class="tab-container">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Marketing
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_marketing" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Marketing"></tbody>
+                        </table>
+
+                        <table class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="table-span-header">
+                                        Miscellaneous
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="47"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Marketing_misc"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB MARKETING -->
+                    <!-- TAB SALES -->
+                    <div id="tabSales" class="tab-container">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Sales
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_sales" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Sales"></tbody>
+                        </table>
+
+                        <table class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="table-span-header">
+                                        Miscellaneous
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="47"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Sales_misc"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB SALES -->
+                    <!-- TAB SERVICE -->
+                    <div id="tabService" class="tab-container">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Service
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_service" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Service"></tbody>
+                        </table>
+
+                        <table class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="table-span-header">
+                                        Miscellaneous
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="47"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Service_misc"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB SERVICE -->
+                    <!-- TAB BUSINESS MANAGEMENT -->
+                    <div id="tabBusinessManagement" class="tab-container">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Business Management
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_businessmanagement" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_BusinessManagement"></tbody>
+                        </table>
+
+                        <table class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="table-span-header">
+                                        Privacy
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="47"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_BusinessManagement_privacy"></tbody>
+                        </table>
+
+                        <table class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="table-span-header">
+                                        Miscellaneous
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="47"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_BusinessManagement_misc"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB BUSINESS MANAGEMENT -->
+                    <!-- TAB SERVICE MANAGEMENT -->
+                    <div id="tabServiceManagement" class="tab-container">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Service Management
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_servicemanagement" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_ServiceManagement"></tbody>
+                        </table>
+
+                        <table class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="table-span-header">
+                                        Miscellaneous
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="47"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_ServiceManagement_misc"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB SERVICE MANAGEMENT -->
+                    <!-- TAB CUSTOMIZATION -->
+                    <div id="tabCustomization" class="tab-container">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Customization
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_customization" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Customization"></tbody>
+                        </table>
+
+                        <table class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" class="table-span-header">
+                                        Miscellaneous
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="47"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Customization_misc"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB CUSTOMIZATION -->
+                    <!-- TAB CUSTOM ENTITIES -->
+                    <div id="tabCustomEntities" class="tab-container">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Custom Entities
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_customentities" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_CustomEntities"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB CUSTOM ENTITIES -->
+                    <!-- TAB OTHER -->
+                    <div id="tabOther" class="tab-container">
+                        <table class="table header-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" class="table-span-header">
+                                        Other
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="table_other" class="table sticky-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th width="47">Create</th>
+                                    <th width="47">Read</th>
+                                    <th width="47">Write</th>
+                                    <th width="47">Delete</th>
+                                    <th width="47">Append</th>
+                                    <th width="47">Append To</th>
+                                    <th width="47">Assign</th>
+                                    <th width="47">Share</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_Other"></tbody>
+                        </table>
+                    </div>
+                    <!-- END TAB OTHER -->
+                    <!-- END TABS -->
+                </div>
+            </div>
+            <!-- END MID COL -->
+            <!-- RIGHT COL -->
+            <div class="col-sm-3 col-xs-6 right-col" id="right-col-top">
+                <label class="control checkbox chk-roles">
+                    <input type="checkbox" id="chkAllRoles">
+                    <span class="checkbox-label"></span>
+                </label>
+
+                <div class="col-header-title">
+                    <h1>Roles</h1>
+                    <h2>
+                        <span id="highlightedRoles"></span>
+                    </h2>
+                </div>
+                <div id="list-roles-col" class="list-group">
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-6 right-col" id="right-col-bottom">
+                <div class="col-header-title">
+                    <h1>Teams</h1>
+                    <h2>
+                        <span id="highlightedTeams"></span>
+                    </h2>
+                </div>
+                <div id="list-teams-col" class="list-group">
+                </div>
+            </div>
+            <!-- END RIGHT COL -->
+        </div>
+
+        <div id="html_tooltip_wrapper">
+            <div id="tooltip_content">
+
+            </div>
+        </div>
+    </div>
+    <!-- END CONTAINER -->    
+    <script type="text/javascript" src="../scripts/jquery.loading.min.js"></script>
+    <script>
+        $('#roles-page').loading('toggle');
+        $('.left-col').loading('toggle');
+    </script>
+    <script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../scripts/bootstrap_notify.min.js"></script>
+    <script type="text/javascript" src="../scripts/tooltipster.bundle.min.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.stickytableheaders.min.js"></script>
+    <script type="text/javascript" src="../scripts/CRMHelper_Data.js"></script>
+    <script type="text/javascript" src="../scripts/CRMHelper_Error.js"></script>
+    <script type="text/javascript" src="../scripts/custom.js"></script>
+    <script type="text/javascript" src="../scripts/securityrolescheck.js"></script>
+</body>
+</html>

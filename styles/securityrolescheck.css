@@ -1,0 +1,336 @@
+﻿html, body {
+    height: calc(100% - 4px);
+    overflow: hidden;
+}
+
+.body-container {
+    height: calc(100vh - 100px);
+    display: flex;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.custom-row {
+    width: 100%;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+#list-users-col {
+    position: absolute;
+    width: calc(100% - 5px);
+    height: calc(100% - 20px);
+    overflow-y: auto;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    min-height: 200px;
+}
+
+.nav-tabs > li {
+    font-size: 11px;
+}
+
+.tab-container {
+    overflow: auto;
+    height: 91%;
+}
+
+.dropdown-status {
+    width: 73px;
+}
+
+.settings-col {
+    margin-top: 3px;
+}
+
+.user-row[data-disabled="true"] {
+    color: #b73e3e;
+}
+
+.header-row {
+    width: 100%;
+}
+
+.danger-text {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.success-text {
+    color: #308e29;
+}
+
+.mid-col {
+    height: 99%;
+    min-height: 350px;
+}
+
+#right-col-top {
+    height: 60%;
+}
+
+#right-col-bottom {
+    height: 40%;
+}
+
+.list-permissions-col {
+    height: 92.5%;
+}
+
+.role-row i.fa {
+    margin-top: 10px;
+}
+
+.role-row.role-from-team i.fa-users {
+    display: block !important;
+    cursor: pointer;
+}
+
+.team-row i.fa {
+    cursor: pointer;
+}
+
+.role-row.directly-assigned-role i.fa-user-o {
+    display: block !important;
+}
+
+.clickable-icon.selected {
+    color: #2e7a24;
+}
+
+.team-row {
+    display: inline;
+}
+
+.role-row {
+    display: inline-block;
+    width: 95%;
+    border-top: 1px solid #e5e5e5;
+    overflow: hidden;
+    padding-bottom: 2px;
+}
+
+    .role-row.selected .checkbox-label {
+        font-weight: bold;
+        text-decoration: underline;
+        color: #992626;
+    }
+
+    .role-row:first-child {
+        border-top: 0;
+    }
+
+.team-row.selected span {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #992626;
+}
+
+.list-group {
+    position: absolute;
+    width: calc(100% - 5px);
+    height: 92%;
+    overflow-y: auto;
+}
+
+.team-row {
+    display: inline-block;
+    border: 1px solid #2e8bcc;
+    margin: 5px;
+    padding: 3px;
+}
+
+.col-header-title {
+    height: 35px;
+    overflow: hidden;
+    max-width: 74%;
+}
+
+    .col-header-title h1, .col-header-title h2 {
+        display: inline;
+    }
+
+    .col-header-title h2 {
+        margin-left: 3px;
+        width: 70%;
+    }
+
+.table {
+    font-size: 11px;
+}
+
+    .table > thead > tr > th {
+        font-weight: normal;
+        text-decoration: underline;
+        text-align: center;
+        font-size: 10.5px;
+    }
+
+        .table > thead > tr > th:first-child {
+            font-weight: bold;
+            text-decoration: none;
+            text-align: left;
+            max-width: 72px;
+        }
+
+    .table > tbody > tr > td {
+        padding: 3.5px;
+        height: 23px;
+    }
+
+.table-span-header {
+    font-weight: bold;
+    font-size: 17px;
+    border-top: 0px solid #fff !important;
+}
+
+.privilege_div {
+    width: 14px;
+    height: 14px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.chk-roles {
+    margin-right: 0;
+}
+
+.privilege_empty {
+    background: url('../images/privileges/privilege_empty.png') no-repeat;
+    background-size: contain;
+}
+
+.privilege_user {
+    background: url('../images/privileges/privilege_user.png') no-repeat;
+    background-size: contain;
+}
+
+.privilege_bunit {
+    background: url('../images/privileges/privilege_bunit.png') no-repeat;
+    background-size: contain;
+}
+
+.privilege_child_bunit {
+    background: url('../images/privileges/privilege_child_bunit.png') no-repeat;
+    background-size: contain;
+}
+
+.privilege_organization {
+    background: url('../images/privileges/privilege_organization.png') no-repeat;
+    background-size: contain;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 5px;
+}
+
+#html_tooltip_wrapper {
+    display: none;
+}
+
+#tooltip_content {
+    width: 100%;
+}
+
+.privilege_row {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+}
+
+.privilege_row>.privilege_empty {
+    display: inline-block;
+}
+
+#tooltip_role_name {
+    display: inline;
+    margin-left: 5px;
+}
+
+.privilege_row>.privilege_div {
+    width: 13px;
+    height: 13px;
+    cursor: default;
+}
+
+.sticky-table>thead>tr {
+    background-color: white;
+}
+
+.header-table {
+    margin-bottom: 0;
+}
+
+#txtSearch {
+    width: 50%;
+    display: inline-block;
+    float: right;
+}
+
+@media (max-width: 767px) {
+    html, body {
+        height: calc(100% - 3px);
+    }
+
+    html {
+        min-width: 460px;
+        overflow: auto;
+    }
+
+    .left-col {
+        height: 10%;
+        overflow-y: auto;
+    }
+
+    #list-users-col {
+        height: 75%;
+        width: calc(100vw - 40px);
+        min-height: 100px;
+    }
+
+    .mid-col {
+        height: 45%;
+        margin-top: 7px;
+        border-top: 1px solid #428bca;
+        margin-bottom: 20px;
+        min-height: 100px;
+    }
+
+    .right-col {
+        border-top: 1px solid #428bca;
+        width: calc(50% - 6px);
+    }
+
+    .role-row {
+        width: 95%;
+    }
+
+    #right-col-top {
+        height: 25%;
+    }
+
+    #right-col-bottom {
+        height: 25%;
+    }
+
+    .body-container {
+        width: 100%;
+    }
+
+    .custom-row {
+        margin-right: 5px;
+    }
+
+    .list-permissions-col {
+        height: 75%;
+    }
+
+    .list-group {
+        width: initial;
+    }
+
+    .header-row {
+        width: 98%;
+    }
+}

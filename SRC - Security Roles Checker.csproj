@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19F56387-FF17-4F7E-8BC0-F506DC788A4E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SRC___Security_Roles_Checker</RootNamespace>
+    <AssemblyName>SRC - Security Roles Checker</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\FontAwesome.otf.css" />
+    <Content Include="fonts\fontawesome_webfont.eot.css" />
+    <Content Include="fonts\fontawesome_webfont.svg.css" />
+    <Content Include="fonts\fontawesome_webfont.ttf.css" />
+    <Content Include="fonts\fontawesome_webfont.woff.css" />
+    <Content Include="fonts\fontawesome_webfont.woff2.css" />
+    <Content Include="html\SecurityRolesCheck.htm" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\logo16.png" />
+    <Content Include="images\logo32.png" />
+    <Content Include="images\privileges\privilege_bunit.png" />
+    <Content Include="images\privileges\privilege_child_bunit.png" />
+    <Content Include="images\privileges\privilege_empty.png" />
+    <Content Include="images\privileges\privilege_organization.png" />
+    <Content Include="images\privileges\privilege_user.png" />
+    <Content Include="json\Privileges_Mapping.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\bootstrap_notify.min.js" />
+    <Content Include="scripts\CRMHelper_Data.js" />
+    <Content Include="scripts\CRMHelper_Error.js" />
+    <Content Include="scripts\custom.js" />
+    <Content Include="scripts\jquery.loading.min.js" />
+    <Content Include="scripts\jquery.stickytableheaders.min.js" />
+    <Content Include="scripts\jquery_3.3.1.min.js" />
+    <Content Include="scripts\securityrolescheck.js" />
+    <Content Include="scripts\tooltipster.bundle.min.js" />
+    <Content Include="styles\animate.min.css" />
+    <Content Include="styles\custom.css" />
+    <Content Include="styles\font_awesome.min.css" />
+    <Content Include="styles\jquery.loading.min.css" />
+    <Content Include="styles\metro_bootstrap.min.css" />
+    <Content Include="styles\securityrolescheck.css" />
+    <Content Include="styles\securityrolescheck_print.css" />
+    <Content Include="styles\tooltipster.bundle.min.css" />
+    <Content Include="styles\tooltipster_sideTip_light.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Solution\SecurityRolesChecker_0_1_14_10.zip" />
+    <None Include="Solution\SecurityRolesChecker_0_1_14_10_managed.zip" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
